@@ -1,0 +1,25 @@
+
+name: YouTube Shorts Automation
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "0 3 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check cloud environment
+        run: |
+          echo "YouTube automation cloud runner is ready"
+          python3 --version
+          ffmpeg -version
+          
